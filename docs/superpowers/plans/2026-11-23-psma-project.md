@@ -31,30 +31,30 @@
 
 **Interfaces:** `load_clinical(path: Path) -> DataFrame`; `summarize_clinical(data: DataFrame) -> DataFrame`. Rows identify endpoint, arm, n, median and interval months, confidence level, source and population. Summary emits treatment/control medians and their descriptive difference.
 
-- [ ] Verify original source values, sample sizes, interval levels and extraction locations.
-- [ ] Write tests for expected differences (4.0 and 5.3 months), populations, missing/duplicate arms, invalid medians, and mismatched metadata; run and observe import failure before code exists.
-- [ ] Implement input validation and descriptive summary; add dependency configuration.
-- [ ] Install/locate Python and create an ignored virtual environment. Run clinical tests and commit when green.
+- [x] Verify original source values, sample sizes, interval levels and extraction locations.
+- [x] Write tests for expected differences (4.0 and 5.3 months), populations, missing/duplicate arms, invalid medians, and mismatched metadata; run and observe import failure before code exists.
+- [x] Implement input validation and descriptive summary; add dependency configuration.
+- [x] Install/locate Python and create an ignored virtual environment. Run clinical tests and commit when green.
 
 ### Task 2: Numerical model
 **Files:** `src/simulation.py`, `tests/test_simulation.py`.
 
 **Interfaces:** `simulate(biological_half_life_days: float | None, step_days: float, duration_days: float = 30) -> tuple[DataFrame, dict]`. Return sampled analytical and Euler activity plus integral and error statistics.
 
-- [ ] Write tests for physical half-life, accelerated clearance, analytical integral, Euler and trapezoidal convergence, finite positive inputs, positivity bound, and a partial final step. Run and observe import failure.
-- [ ] Implement rates, grid, Euler recurrence, trapezoidal integration and analytical references. Keep units explicit.
-- [ ] Run numerical and clinical tests, then commit.
+- [x] Write tests for physical half-life, accelerated clearance, analytical integral, Euler and trapezoidal convergence, finite positive inputs, positivity bound, and a partial final step. Run and observe import failure.
+- [x] Implement rates, grid, Euler recurrence, trapezoidal integration and analytical references. Keep units explicit.
+- [x] Run numerical and clinical tests, then commit.
 
 ### Task 3: Reproducible report and student handoff
 **Files:** `run_analysis.py`, `tests/test_outputs.py`, `README.md`, `docs/video-outline.md`, `results/clinical/*`, `results/simulated/*`.
 
 **Interfaces:** `run(output_dir: Path) -> None`, callable from CLI with optional `--output-dir`. Use paths relative to the script, not caller's working directory.
 
-- [ ] Write an integration test requiring four clinical input rows, two clinical summary rows, 12 simulation scenarios, 1,572 time-series rows, and four PNG figures; observe missing entry point failure.
-- [ ] Implement the entry point and legible plots. Export hazard ratios as published context, not fitted statistics. Pin tested dependency versions.
-- [ ] Run all tests and entry point; inspect all four figures. Check generated CSVs and offline execution from a different working directory.
-- [ ] Write setup/run instructions, equations, limitations, GitHub sign-in steps and a short video outline. Document actual software versions and numerical results.
-- [ ] Review diff and staged files, commit the completed reproducible deliverable, and report any remaining account/authentication blocker.
+- [x] Write an integration test requiring four clinical input rows, two clinical summary rows, 12 simulation scenarios, 1,572 time-series rows, and four PNG figures; observe missing entry point failure.
+- [x] Implement the entry point and legible plots. Export hazard ratios as published context, not fitted statistics. Pin tested dependency versions.
+- [x] Run all tests and entry point; inspect all four figures. Check generated CSVs and offline execution from a different working directory.
+- [x] Write setup/run instructions, equations, limitations, GitHub sign-in steps and a short video outline. Document actual software versions and numerical results.
+- [x] Review diff and staged files, commit the completed reproducible deliverable, and report any remaining account/authentication blocker.
 
 ## Execution record
 Approved design; implementing inline in the user's project folder on a dedicated `codex/psma-analysis` branch. No linked worktree is needed for this empty repository. No baseline code or tests exist. GitHub authentication remains user-owned.
